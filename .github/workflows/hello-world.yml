@@ -17,6 +17,3 @@ jobs:
         # Echo "Hello, <user>!"
         run: |
           make say-hello
-        # Add environment variables
-        env:
-          NAME: true
