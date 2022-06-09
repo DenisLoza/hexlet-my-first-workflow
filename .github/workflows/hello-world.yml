@@ -1,13 +1,23 @@
-# file: .github/workflows/hello-world.yml
+# Name of workflow
 name: hello-world
 # on – определяет события, которые запускают воркфлоу
-on: push
+on:
+  - push
+  - pull_request
+
+env:
+  CI: true
+
 jobs:
   # build – произвольно выбранное имя задания
   # их может быть больше одного
   build:
     # операционная система для работы воркфлоу
     runs-on: ubuntu-latest
+    strategy:
+      # Node versions list
+      matrix:
+        node-version: [14.x]
     steps: # список шагов, которые надо выполнить
       # экшен, выполняет какую-то задачу
       # checkout – клонирует репозиторий
